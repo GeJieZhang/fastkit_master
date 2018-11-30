@@ -1,0 +1,91 @@
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion var.compileSdkVersion
+
+
+
+    defaultConfig {
+
+        minSdkVersion var.minSdkVersion
+        targetSdkVersion var.targetSdkVersion
+        versionCode var.versionCode
+        versionName var.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: "base"]
+            }
+        }
+
+        resConfigs "zh", "en"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+//
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation "junit:junit:$var.junit"
+    androidTestImplementation "com.android.support.test:runner:$var.runner"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$var.espresso_core"
+
+
+
+    api project(':lib-fastkit')
+    /**
+     * 阿里组件化开发
+     */
+    api "com.alibaba:arouter-api:$var.arouter_api"
+
+    annotationProcessor "com.alibaba:arouter-compiler:$var.arouter_compiler"
+    /**
+     * 圆角图片
+     */
+    api "de.hdodenhof:circleimageview:$var.circleimageview"
+
+    /**
+     * ViewPager指示器
+     */
+    api "com.github.hackware1993:MagicIndicator:$var.magicIndicator"
+
+    /**
+     * SwitchButton
+     */
+    api "lib.kingja.switchbutton:switchbutton:$var.switchbutton"
+    /**
+     * 时间，城市选择器
+     */
+    api "com.contrarywind:Android-PickerView:$var.pickerView"
+    /**
+     * 图片选择
+     */
+    api "com.github.LuckSiege.PictureSelector:picture_library:$var.picture_library"
+    /**
+     * 蒲公英更新检测
+     */
+    api "com.pgyersdk:sdk:$var.pgyersdk"
+
+    /**
+     * 阿里热修复
+     */
+    api "com.aliyun.ams:alicloud-android-hotfix:$var.hotfix"
+
+    /**
+     * 二维码
+     */
+    api "cn.yipianfengye.android:zxing-library:$var.zxing_library"
+
+    api "com.jakewharton:butterknife:$var.butter_knife"
+
+}

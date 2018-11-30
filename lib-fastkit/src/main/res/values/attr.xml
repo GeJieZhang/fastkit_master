@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //==============================================================================================
+    //================================================================================自定义View=====
+    //==============================================================================================
+    <!--SpringView-->
+    <declare-styleable name="Kit_SpringView">
+        <attr name="type">
+            <enum name="overlap" value="0"/>
+            <enum name="follow" value="1"/>
+        </attr>
+        <attr name="give">
+            <enum name="both" value="0"/>
+            <enum name="top" value="1"/>
+            <enum name="bottom" value="2"/>
+            <enum name="none" value="3"/>
+        </attr>
+        <attr name="header" format="reference"/>
+        <attr name="footer" format="reference"/>
+    </declare-styleable>
+
+    <!--MaxHeightView-->
+    <declare-styleable name="Kit_MaxHeightView">
+        <attr name="mhv_HeightRatio" format="reference|float" />
+        <attr name="mhv_HeightDimen" format="reference|dimension" />
+    </declare-styleable>
+    <!--MultiStateView-->
+
+    <declare-styleable name="Kit_MultiStateView">
+        <attr name="loadingView" format="reference"/>
+        <attr name="emptyView" format="reference"/>
+        <attr name="errorView" format="reference"/>
+        <attr name="networkErrorView" format="reference"/>
+        <attr name="viewState" format="enum">
+            <enum name="content" value="0"/>
+            <enum name="error" value="1"/>
+            <enum name="networkError" value="2"/>
+            <enum name="empty" value="3"/>
+            <enum name="loading" value="4"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

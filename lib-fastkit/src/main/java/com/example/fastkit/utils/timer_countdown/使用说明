@@ -1,0 +1,55 @@
+    //==============================================================================================
+    //==========================================================================定时器按钮的实现====
+    //==============================================================================================
+
+    1.参考
+    https://www.jianshu.com/p/a953ae1c76c3
+
+    2.使用
+    public class MainActivity extends Activity {
+
+    TextView txt;
+
+    CountDownTimer timer = new CountDownTimer(60000, 1000) {
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            txt.setText(millisUntilFinished/1000 + "秒");
+        }
+
+        @Override
+        public void onFinish() {
+            txt.setEnabled(true);
+            txt.setText("发送验证码");
+        }
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        txt = (TextView) findViewById(R.id.txt);
+        txt.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                view.setEnabled(false);
+                timer.start();
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        timer.cancel();
+    }
+
+    }
+
+
+
+
+
+
+

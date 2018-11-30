@@ -1,0 +1,14 @@
+    //==============================================================================================
+    //============================================================================数据库框架使用====
+    //==============================================================================================
+
+           //实列化得到daoSupport对象
+           IDaoSoupport<Person> daoSoupport = DaoSupportFactory.getFactory().getDao(Person.class);
+
+           Person person = new Person("刘备", 1000);
+
+           //插入数据
+           daoSoupport.insert(person);
+
+           //查询数据
+           List<Person> persons = daoSoupport.query();

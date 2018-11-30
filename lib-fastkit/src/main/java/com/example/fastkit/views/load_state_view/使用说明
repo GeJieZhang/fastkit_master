@@ -1,0 +1,24 @@
+    //==============================================================================================
+    //==============================================================================加载状态布局======
+    //==============================================================================================
+    0.参考链接
+    https://github.com/Kennyc1012/MultiStateView
+
+    1.使用方法
+      <com.zoomtk.circle.view.MultiStateView xmlns:app="http://schemas.android.com/apk/res-auto"
+          android:id="@+id/state_view"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          app:emptyView="@layout/empty_view"
+          app:errorView="@layout/error_view"
+          app:loadingView="@layout/loading_view"
+          app:viewState="content"></MultiStateView>
+
+
+
+
+
+
+
+
+

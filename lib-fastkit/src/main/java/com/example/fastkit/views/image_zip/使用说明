@@ -1,0 +1,22 @@
+    //==============================================================================================
+    //========================================================================ZenHui图片压缩JPEG====
+    //==============================================================================================
+
+     1.参考文章CMAKE生成多个SO文件
+     http://blog.csdn.net/b2259909/article/details/58591898
+     2.引入第三方so库
+     https://blog.csdn.net/carryWorld/article/details/75026171
+     https://www.jianshu.com/p/5f29fd671750
+     3.CMAKE图片压缩算法
+     https://github.com/mcksuu/jpeg-android
+     4.常见异常
+     https://blog.csdn.net/u014518723/article/details/74437043
+     5.参考
+     https://blog.csdn.net/a847427920/article/details/73200878
+
+     2.使用方法
+      private String pathName = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator;
+      Bitmap bitmap = BitmapFactory.decodeFile(pathName + "111.jpg");
+
+      JpegUtils.compressBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), pathName + "222.jpg", 20);
+

@@ -1,0 +1,116 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion var.compileSdkVersion
+    defaultConfig {
+        minSdkVersion var.minSdkVersion
+        targetSdkVersion var.targetSdkVersion
+        versionCode var.versionCode
+        versionName var.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+
+        ndk {
+//          abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+
+            abiFilters 'armeabi'
+        }
+
+        resConfigs "zh", "en"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    /**
+     * 系统默认
+     */
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation "junit:junit:$var.junit"
+    androidTestImplementation "com.android.support.test:runner:$var.runner"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$var.espresso_core"
+    /**
+     * 解决64k
+     */
+    api "com.android.support:multidex:$var.multidex"
+    /**
+     * UI
+     */
+    api "com.android.support:recyclerview-v7:$var.support_version"
+    api "com.android.support:appcompat-v7:$var.support_version"
+    api "com.android.support:percent:$var.support_version"
+    api "com.android.support:support-v4:$var.support_version"
+    api "com.android.support:design:$var.support_version"
+    /**
+     * 网络请求 OkHttp
+     */
+    api "com.squareup.okhttp3:okhttp:$var.okhttp"
+    api "com.squareup.okhttp3:logging-interceptor:$var.logging_interceptor"
+    api "com.orhanobut:logger:$var.logger"
+    api "com.google.code.gson:gson:$var.gson"
+    /**
+     * 网络请求 Retrofit
+     */
+    api "com.squareup.retrofit2:retrofit:$var.retrofit"
+    api "com.squareup.retrofit2:converter-gson:$var.converter_gson"
+    api "com.squareup.retrofit2:adapter-rxjava2:$var.adapter_rxjava2"
+    /**
+     * RxJava
+     */
+    api "io.reactivex.rxjava2:rxandroid:$var.rxandroid"
+    api "io.reactivex.rxjava2:rxjava:$var.rxjava"
+    /**
+     * 版本更新
+     */
+    api "com.allenliu.versionchecklib:library:$var.versionchecklib"
+    /**
+     * 图片加载
+     */
+    api "com.github.bumptech.glide:glide:$var.glide"
+    annotationProcessor "com.github.bumptech.glide:compiler:$var.glide_compiler"
+
+    /**
+     * RxPermissions
+     */
+    api "com.tbruyelle.rxpermissions2:rxpermissions:$var.rxpermissions"
+    /**
+     * Dialog
+     */
+    api "com.afollestad.material-dialogs:commons:$var.material_dialogs"
+
+    /**
+     * 日志处理
+     */
+    api "com.jakewharton.timber:timber:$var.timber"
+    /**
+     * 处理拼音
+     */
+    api files('libs/pinyin4j-2.5.0.jar')
+    /**
+     * 腾讯浏览器X5内核
+     */
+    api files('libs/tbs_sdk_thirdapp_v3.6.0.1249_43610_sharewithdownload_withoutGame_obfs_20180608_114954.jar')
+
+    /**
+     * 内存检测
+     */
+    debugApi "com.squareup.leakcanary:leakcanary-android:$var.leakcanary"
+    releaseApi "com.squareup.leakcanary:leakcanary-android-no-op:$var.leakcanary"
+    debugApi "com.squareup.leakcanary:leakcanary-support-fragment:$var.leakcanary"
+
+    /**
+     * AndroidEventBus
+     */
+    api "org.simple:androideventbus:$var.android_eventbus"
+
+}

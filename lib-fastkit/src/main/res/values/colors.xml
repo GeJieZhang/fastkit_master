@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+
+    //==============================================================================================
+    //==================================================================================普通颜色=====
+    //==============================================================================================
+
+    <color name="kit_white">#ffffffff</color>
+    <color name="kit_transparent">#00000000</color>
+
+
+    //==============================================================================================
+    //================================================================================自定义View=====
+    //==============================================================================================
+
+    //文字
+    <color name="kit_textColor">#181717</color>
+    <color name="kit_textColor_gray">#666565</color>
+    <color name="kit_titleBar">#303030</color>
+    //自定义LoadingView
+    <color name="kit_triangle">#aa72d572</color>
+    <color name="kit_circle">#aa738ffe</color>
+    <color name="kit_rect">#aae84e40</color>
+    //自定义图片选择库
+    <color name="kit_media_choose_op_btn_disabled">#ffffffff</color>
+    <color name="kit_media_choose_op_btn_enabled">#ffff819f</color>
+
+
+</resources>

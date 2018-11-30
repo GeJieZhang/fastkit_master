@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/lin_tx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="头像" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_head"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+             />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        ></View>
+
+    <LinearLayout
+        android:id="@+id/lin_sjh"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="手机号" />
+
+        <TextView
+            android:id="@+id/tv_sjh"
+          android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dp"
+            android:text=""
+            android:textColor="@color/kit_textColor_gray" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        ></View>
+
+    <LinearLayout
+        android:id="@+id/lin_nc"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="姓名" />
+
+        <TextView
+            android:id="@+id/tv_nc"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dp"
+            android:text=""
+            android:textColor="@color/kit_textColor_gray" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+       ></View>
+
+    <LinearLayout
+        android:id="@+id/lin_xb"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="性别" />
+
+        <TextView
+            android:id="@+id/tv_xb"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dp"
+            android:text=""
+            android:textColor="@color/kit_textColor_gray" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/lin_yqm"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+
+
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="邀请码" />
+
+        <TextView
+            android:id="@+id/tv_yqm"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dp"
+            android:text=""
+            android:textColor="@color/kit_textColor_gray" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lin_smrz"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="实名认证" />
+
+        <TextView
+            android:id="@+id/tv_smrz"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dp"
+            android:text="未认证"
+            android:textColor="@color/kit_textColor_gray" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

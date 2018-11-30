@@ -1,0 +1,197 @@
+    //==============================================================================================
+    //==============================================================================Http引擎切换====
+    //==============================================================================================
+    1.首先在Application中注册
+      HttpUtils.init(new OkHttpEngine());
+
+
+    2.使用
+  HttpUtils.with(this)
+                    .url(ApiUtils.CODE)
+                    .addParam("phone", phone)
+                    .post()
+                    .execute(new HttpCallBack<String>() {
+                        @Override
+                        public void onError(Exception e) {
+                            super.onError(e);
+
+
+                        }
+
+                        @Override
+                        public void onSuccess(String result) {
+
+                            super.onSuccess(result);
+
+                        }
+                    });
+
+    3.可通过更换Engine使用不同的网络请求框架
+
+     //==============================================================================================
+        //==============================================================================OkHttp使用======
+        //==============================================================================================
+        0.0.参考文章
+        https://www.jianshu.com/p/9aa969dd1b4d
+
+        0.1.拦截器
+        https://blog.csdn.net/oyangyujun/article/details/50039403
+
+
+        1.文件下载
+         public void okHttpDownload(View view) {
+                 OkHttpClient client = new OkHttpClient();
+                 final Request request = new Request.Builder()
+                         .get()
+                         .url("https://www.baidu.com/img/bd_logo1.png")
+                         .build();
+                 Call call = client.newCall(request);
+                 call.enqueue(new Callback() {
+                     @Override
+                     public void onFailure(Call call, IOException e) {
+                         Log.e("moer", "onFailure: ");
+                         ;
+                     }
+
+                     @Override
+                     public void onResponse(Call call, Response response) throws IOException {
+                         //拿到字节流
+                         InputStream is = response.body().byteStream();
+
+                         int len = 0;
+                         File file = new File(Environment.getExternalStorageDirectory(), "n.png");
+                         FileOutputStream fos = new FileOutputStream(file);
+                         byte[] buf = new byte[128];
+
+                         while ((len = is.read(buf)) != -1) {
+                             fos.write(buf, 0, len);
+                         }
+
+                         fos.flush();
+                         //关闭流
+                         fos.close();
+                         is.close();
+                     }
+                 });
+             }
+
+
+
+
+
+         2.Get请求
+         private void okHttpGet() {
+                 OkHttpClient client = new OkHttpClient();
+
+                 Request request = new Request.Builder()
+                         .get()
+                         .url("https:www.baidu.com")
+                         .build();
+
+                 Call call = client.newCall(request);
+
+                 //同步调用,返回Response,会抛出IO异常
+                 try {
+                     Response response = call.execute();
+                 } catch (IOException e) {
+                     e.printStackTrace();
+                 }
+
+                 //异步调用,并设置回调函数
+                 call.enqueue(new Callback() {
+                     @Override
+                     public void onFailure(Call call, IOException e) {
+                         Toast.makeText(MainActivity.this, "get failed", Toast.LENGTH_SHORT).show();
+                     }
+
+                     @Override
+                     public void onResponse(Call call, final Response response) throws IOException {
+                         final String res = response.body().string();
+                         runOnUiThread(new Runnable() {
+                             @Override
+                             public void run() {
+
+                             }
+                         });
+                     }
+                 });
+
+
+             }
+
+         3.Post请求
+          private void okHttpPost() {
+
+                 OkHttpClient client = new OkHttpClient();
+                 /**
+                  * 传参数
+                  */
+                 FormBody formBody = new FormBody.Builder()
+                         .add("username", "admin")
+                         .add("password", "admin")
+                         .build();
+                 /**
+                  * 传字符串
+                  */
+                 RequestBody requestBody = RequestBody.create(MediaType.parse("text/plain;charset=utf-8"), "{username:admin;password:admin}");
+                 /**
+                  * 传文件
+                  */
+                 File file = new File(Environment.getExternalStorageDirectory(), "1.png");
+                 if (!file.exists()) {
+                     Toast.makeText(this, "文件不存在", Toast.LENGTH_SHORT).show();
+                 } else {
+                     RequestBody requestBody2 = RequestBody.create(MediaType.parse("application/octet-stream"), file);
+                 }
+
+                 /**
+                  * 表单提交
+                  *需要引入一下依赖
+                  * compile 'com.squareup.okio:okio:1.11.0'
+                  */
+                 File file2 = new File(Environment.getExternalStorageDirectory(), "1.png");
+                 if (!file.exists()) {
+                     Toast.makeText(this, "文件不存在", Toast.LENGTH_SHORT).show();
+                     return;
+                 }
+                 RequestBody muiltipartBody = new MultipartBody.Builder()
+                         //一定要设置这句
+                         .setType(MultipartBody.FORM)
+                         .addFormDataPart("username", "admin")//
+                         .addFormDataPart("password", "admin")//
+                         .addFormDataPart("myfile", "1.png", RequestBody.create(MediaType.parse("application/octet-stream"), file2))
+                         .build();
+
+
+                 final Request request = new Request.Builder()
+                         .url("http://www.jianshu.com/")
+                         .post(formBody)
+                         .build();
+
+                 Call call = client.newCall(request);
+
+                 call.enqueue(new Callback() {
+                     @Override
+                     public void onFailure(Call call, IOException e) {
+                         Toast.makeText(MainActivity.this, "Post Failed", Toast.LENGTH_SHORT).show();
+                     }
+
+                     @Override
+                     public void onResponse(Call call, Response response) throws IOException {
+                         final String res = response.body().string();
+                         runOnUiThread(new Runnable() {
+                             @Override
+                             public void run() {
+
+                             }
+                         });
+                     }
+                 });
+
+
+             }
+
+
+
+
+

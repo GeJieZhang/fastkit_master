@@ -1,0 +1,139 @@
+    //==============================================================================================
+    //==============================================================================图片选择工具====
+    //==============================================================================================
+
+
+    1.来自GitHub
+        compile 'com.github.LuckSiege.PictureSelector:picture_library:v2.1.0'
+
+    2.使用方法
+     /**
+         * 选择图片
+         */
+        private void selectPicture() {
+
+            PictureSelector.create(AuthNoActivity.this)
+                    .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()
+                    .maxSelectNum(1)// 最大图片选择数量 int
+                    .minSelectNum(1)// 最小选择数量 int
+                    .imageSpanCount(4)// 每行显示个数 int
+                    .selectionMode(PictureConfig.SINGLE)// 多选 or 单选 PictureConfig.MULTIPLE or PictureConfig.SINGLE
+                    .previewImage(false)// 是否可预览图片 true or false
+                    .compressGrade(Luban.FIRST_GEAR)// luban压缩档次，默认3档 Luban.THIRD_GEAR、Luban.FIRST_GEAR、Luban.CUSTOM_GEAR
+                    .isCamera(true)// 是否显示拍照按钮 true or false
+                    .isZoomAnim(true)// 图片列表点击 缩放效果 默认true
+                    .sizeMultiplier(0.5f)// glide 加载图片大小 0~1之间 如设置 .glideOverride()无效
+                    .setOutputCameraPath("/CustomPath")// 自定义拍照保存路径,可不填
+                    .enableCrop(true)// 是否裁剪 true or false
+                    .compress(true)// 是否压缩 true or false
+                    .compressMode(PictureConfig.LUBAN_COMPRESS_MODE)//系统自带 or 鲁班压缩 PictureConfig.SYSTEM_COMPRESS_MODE or LUBAN_COMPRESS_MODE
+                    .glideOverride(160, 160)// int glide 加载宽高，越小图片列表越流畅，但会影响列表图片浏览的清晰度
+                    .withAspectRatio(200, 150)// int 裁剪比例 如16:9 3:2 3:4 1:1 可自定义
+                    .hideBottomControls(false)// 是否显示uCrop工具栏，默认不显示 true or false
+                    .freeStyleCropEnabled(false)// 裁剪框是否可拖拽 true or false
+                    .circleDimmedLayer(false)// 是否圆形裁剪 true or false
+                    .showCropFrame(true)// 是否显示裁剪矩形边框 圆形裁剪时建议设为false   true or false
+                    .showCropGrid(true)// 是否显示裁剪矩形网格 圆形裁剪时建议设为false    true or false
+                    .openClickSound(true)// 是否开启点击声音 true or false
+                    .selectionMedia(selectMedia)// 是否传入已选图片 List<LocalMedia> list
+                    .previewEggs(true)// 预览图片时 是否增强左右滑动图片体验(图片滑动一半即可看到上一张是否选中) true or false
+                    .cropCompressQuality(90)// 裁剪压缩质量 默认90 int
+                    .compressMaxKB(400)//压缩最大值kb compressGrade()为Luban.CUSTOM_GEAR有效 int
+                    .compressWH(200, 150) // 压缩宽高比 compressGrade()为Luban.CUSTOM_GEAR有效  int
+                    .rotateEnabled(true) // 裁剪是否可旋转图片 true or false
+                    .scaleEnabled(true)// 裁剪是否可放大缩小图片 true or false
+                    .forResult(PictureConfig.CHOOSE_REQUEST);//结果回调onActivityResult code
+
+
+        }
+
+        3.设置图片集合
+        private List<LocalMedia> selectMedia = new ArrayList<>();
+
+        4.设置图片选择回调
+        /**
+         * 拍照
+         */
+        private void takePicture() {
+
+            PictureSelector.create(AuthNoActivity.this)
+                    .openCamera(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()
+                    .maxSelectNum(1)// 最大图片选择数量 int
+                    .minSelectNum(1)// 最小选择数量 int
+                    .imageSpanCount(4)// 每行显示个数 int
+                    .selectionMode(PictureConfig.SINGLE)// 多选 or 单选 PictureConfig.MULTIPLE or PictureConfig.SINGLE
+                    .previewImage(true)// 是否可预览图片 true or false
+                    .compressGrade(Luban.FIRST_GEAR)// luban压缩档次，默认3档 Luban.THIRD_GEAR、Luban.FIRST_GEAR、Luban.CUSTOM_GEAR
+                    .isCamera(true)// 是否显示拍照按钮 true or false
+                    .isZoomAnim(true)// 图片列表点击 缩放效果 默认true
+                    .sizeMultiplier(0.5f)// glide 加载图片大小 0~1之间 如设置 .glideOverride()无效
+                    .setOutputCameraPath("/CustomPath")// 自定义拍照保存路径,可不填
+                    .enableCrop(true)// 是否裁剪 true or false
+                    .compress(true)// 是否压缩 true or false
+                    .compressMode(PictureConfig.LUBAN_COMPRESS_MODE)//系统自带 or 鲁班压缩 PictureConfig.SYSTEM_COMPRESS_MODE or LUBAN_COMPRESS_MODE
+                    .glideOverride(160, 160)// int glide 加载宽高，越小图片列表越流畅，但会影响列表图片浏览的清晰度
+                    .withAspectRatio(200, 150)// int 裁剪比例 如16:9 3:2 3:4 1:1 可自定义
+                    .hideBottomControls(false)// 是否显示uCrop工具栏，默认不显示 true or false
+                    .freeStyleCropEnabled(false)// 裁剪框是否可拖拽 true or false
+                    .circleDimmedLayer(false)// 是否圆形裁剪 true or false
+                    .showCropFrame(true)// 是否显示裁剪矩形边框 圆形裁剪时建议设为false   true or false
+                    .showCropGrid(true)// 是否显示裁剪矩形网格 圆形裁剪时建议设为false    true or false
+                    .openClickSound(true)// 是否开启点击声音 true or false
+                    .selectionMedia(selectMedia)// 是否传入已选图片 List<LocalMedia> list
+                    .previewEggs(true)// 预览图片时 是否增强左右滑动图片体验(图片滑动一半即可看到上一张是否选中) true or false
+                    .cropCompressQuality(90)// 裁剪压缩质量 默认90 int
+                    .compressMaxKB(400)//压缩最大值kb compressGrade()为Luban.CUSTOM_GEAR有效 int
+                    .compressWH(200, 150) // 压缩宽高比 compressGrade()为Luban.CUSTOM_GEAR有效  int
+                    .rotateEnabled(true) // 裁剪是否可旋转图片 true or false
+                    .scaleEnabled(true)// 裁剪是否可放大缩小图片 true or false
+                    .forResult(PictureConfig.CHOOSE_REQUEST);//结果回调onActivityResult code
+
+
+        }
+
+
+
+         @Override
+            protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+                super.onActivityResult(requestCode, resultCode, data);
+                if (resultCode == RESULT_OK) {
+                    switch (requestCode) {
+                        case PictureConfig.CHOOSE_REQUEST:
+                            // 图片选择结果回调
+                            selectMedia = PictureSelector.obtainMultipleResult(data);
+                            // 例如 LocalMedia 里面返回三种path
+                            // 1.media.getPath(); 为原图path
+                            // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true
+                            // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true
+                            // 如果裁剪并压缩了，已取压缩路径为准，因为是先裁剪后压缩的
+                            // /storage/emulated/0/zhongtai/Images/pet1515997228818.jpg
+                            if (selectMedia.get(0).isCut() && !selectMedia.get(0).isCompressed()) {
+                                // 裁剪过
+                                String path = selectMedia.get(0).getCutPath();
+                            } else if (selectMedia.get(0).isCompressed() || (selectMedia.get(0).isCut() && selectMedia.get(0).isCompressed())) {
+                                // 压缩过,或者裁剪同时压缩过,以最终压缩过图片为准
+                                String path = selectMedia.get(0).getCompressPath();
+                                BitmapFactory.Options newOpts = new BitmapFactory.Options();
+                                final Bitmap bitmap = BitmapFactory.decodeFile(path, newOpts);
+                                //                        iv_head.setImageBitmap(bitmap);
+                                //                        MySetHttpUtil.reg(UserInformation.this, userInfo.get(0).get("Email"), bitmap, userInfo.get(0).get("API_KEY"));
+                                //                        progressBar.setVisibility(View.VISIBLE);
+                                if (isFront) {
+                                    frontBitmap = bitmap;
+                                    ivFrontSide.setImageBitmap(frontBitmap);//为身份证前面设置图片
+                                } else {
+                                    backBitmap = bitmap;
+                                    ivBackSide.setImageBitmap(backBitmap);
+                                }
+
+                            } else {
+                                // 原图地址
+                                String path = selectMedia.get(0).getPath();
+
+                            }
+
+                            break;
+                    }
+                }
+            }
+

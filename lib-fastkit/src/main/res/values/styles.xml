@@ -1,0 +1,88 @@
+<resources>
+
+
+
+
+    //==============================================================================================
+    //=================================================================================自定义View====
+    //==============================================================================================
+
+
+    <!--ZenHui的Dialog-->
+
+    <style name="kit_dialog_from_bottom_anim">
+        <item name="android:windowEnterAnimation">@anim/kit_dialog_from_bottom_anim_in</item>
+        <item name="android:windowExitAnimation">@anim/kit_dialog_from_bottom_anim_out</item>
+    </style>
+
+    <style name="kit_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="kit_dialog_scale_anim">
+        <item name="android:windowEnterAnimation">@anim/kit_dialog_scale_anim_in</item>
+        <item name="android:windowExitAnimation">@anim/kit_dialog_scale_anim_out</item>
+    </style>
+
+
+    <!--NavigationBar-->
+
+    <style name="kit_title_bar_style">
+        <item name="android:background">@color/kit_titleBar</item>
+        <item name="android:paddingLeft">0.0dip</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">44.0dip</item>
+    </style>
+
+    <style name="kit_title_text_style">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/kit_white</item>
+    </style>
+
+    <style name="kit_title_bar_button">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@color/kit_white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@null</item>
+        <item name="android:paddingLeft">5.0dip</item>
+        <item name="android:paddingRight">5.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_marginLeft">0.0dip</item>
+        <item name="android:layout_marginRight">10.0dip</item>
+    </style>
+
+    <style name="back_view" parent="@style/kit_title_bar_button">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/kit_btn_back</item>
+        <item name="android:paddingLeft">0.0dip</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:layout_marginLeft">0.0dip</item>
+        <item name="android:layout_marginRight">0.0dip</item>
+        <item name="android:text">@null</item>
+        <item name="android:drawableLeft">@null</item>
+    </style>
+
+    <!--ZenHui图片选择-->
+
+    <style name="kit_media_choose_btn">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@color/kit_media_choose_op_btn_text</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawablePadding">10.0dip</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+
+</resources>

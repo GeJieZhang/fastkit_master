@@ -1,0 +1,71 @@
+    //==============================================================================================
+    //==================================================================通过拼音首字母对数组排序====
+    //==============================================================================================
+
+    1.引入PinYin的jar包
+
+
+    2.创建工具类
+
+
+    package com.me.activity.customer.utils;
+
+    import com.example.fastkit.order.PinYinUtils;
+    import com.me.activity.customer.bean.OrderBean;
+
+
+    import java.util.ArrayList;
+    import java.util.Collections;
+    import java.util.Comparator;
+    import java.util.List;
+    import java.util.Locale;
+
+    public class OrderUtils<T extends OrderBean> {
+
+        private List<T> list = new ArrayList<>();
+
+
+        public List<T> getOrderData(List<T> list) {
+            this.list = list;
+            for (T t : list) {
+                t.setHeader(getFirstName(t.getC02()));
+            }
+
+
+            Collections.sort(list, new Comparator<T>() {
+                @Override
+                public int compare(T lhs, T rhs) {
+                    if (lhs.getHeader().equals(rhs.getHeader())) {
+                        return lhs.getC02().compareTo(rhs.getC02());
+                    } else {
+                        if ("#".equals(lhs.getHeader())) {
+                            return 1;
+                        } else if ("#".equals(rhs.getHeader())) {
+                            return -1;
+                        }
+                        return lhs.getHeader().compareTo(rhs.getHeader());
+                    }
+                }
+            });
+
+            return list;
+        }
+
+
+        /**
+         * 获取汉字拼音的首字母
+         *
+         * @param name
+         * @return
+         */
+        private String getFirstName(String name) {
+            String character = "";
+            //将名字取出，转换成拼音，并添加到容器中
+            String pinyin = PinYinUtils.getPingYin(name);
+            character = (pinyin.charAt(0) + "").toUpperCase(Locale.ENGLISH);//将一个字符取出，并转换为大写
+            return character;
+
+        }
+    }
+
+

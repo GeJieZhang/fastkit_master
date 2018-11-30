@@ -1,0 +1,31 @@
+    //==============================================================================================
+    //==================================================================================版本更新====
+    //==============================================================================================
+    https://github.com/AlexLiuSheng/CheckVersionLib
+
+
+    1.注册服务
+
+    <service
+    android:name=".service.DemoService"
+    android:enabled="true"
+    android:exported="true" />
+
+
+
+    2.使用功能
+        /**
+         * 检查更新
+         */
+        private void toUpdate() {
+            VersionParams.Builder builder = new VersionParams.Builder()
+                    .setRequestUrl("https://www.baidu.com")
+                    .setCustomDownloadActivityClass(VersionDialogActivity.class)//更新界面
+                    .setSilentDownload(true)//静默下载
+                    .setService(DemoService.class);
+
+            AllenChecker.startVersionCheck(this, builder.build());
+
+
+        }
+

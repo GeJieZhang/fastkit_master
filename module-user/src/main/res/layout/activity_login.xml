@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.fastkit.views.screen_percent.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <com.example.fastkit.views.screen_percent.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        app:layout_marginTopPercent="10%"
+        app:layout_widthPercent="80%">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="8dp" />
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+             />
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="请输入手机号"
+            android:textSize="14sp" />
+
+
+    </com.example.fastkit.views.screen_percent.PercentLinearLayout>
+
+    <com.example.fastkit.views.screen_percent.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        app:layout_marginTopPercent="5%"
+        app:layout_widthPercent="80%">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="8dp" />
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+             />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:textSize="14sp" />
+
+    </com.example.fastkit.views.screen_percent.PercentLinearLayout>
+
+    <com.example.fastkit.views.screen_percent.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        app:layout_widthPercent="80%">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_forget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="忘记密码 >"
+
+            android:textSize="14sp" />
+
+    </com.example.fastkit.views.screen_percent.PercentLinearLayout>
+
+    <com.example.fastkit.views.screen_percent.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_marginTopPercent="5%"
+        app:layout_widthPercent="80%">
+
+        <Button
+            android:id="@+id/btn_login"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            android:text="登录"
+
+
+            />
+
+    </com.example.fastkit.views.screen_percent.PercentLinearLayout>
+
+
+    <com.example.fastkit.views.screen_percent.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_marginTopPercent="5%"
+        app:layout_widthPercent="80%">
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="注册" />
+
+    </com.example.fastkit.views.screen_percent.PercentLinearLayout>
+
+</com.example.fastkit.views.screen_percent.PercentLinearLayout>

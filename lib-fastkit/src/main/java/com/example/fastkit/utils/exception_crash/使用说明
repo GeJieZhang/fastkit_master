@@ -1,0 +1,25 @@
+    //==============================================================================================
+    //==============================================================================奔溃日志处理====
+    //==============================================================================================
+
+    1.在Application中初始化ExceptionCrashHandler
+
+    ExceptionCrashHandler.getInstance().init(this);
+
+    2.上传奔溃信息到服务器
+
+            // 获取上次的崩溃信息str上传到服务器
+            File crashFile = ExceptionCrashHandler.getInstance().getCrashFile();
+            if (crashFile.exists()) {
+                try {
+                    InputStreamReader fileReader = new InputStreamReader(new FileInputStream(crashFile));
+                    char[] buffer = new char[1024];
+                    int len = 0;
+                    while ((len = fileReader.read(buffer)) != -1) {
+                        String str = new String(buffer, 0, len);
+                        Log.d("TAG", str);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }

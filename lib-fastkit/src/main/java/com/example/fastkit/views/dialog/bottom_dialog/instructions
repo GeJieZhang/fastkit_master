@@ -1,0 +1,18 @@
+    //==============================================================================================
+    //==============================================================================BottomDialogs====
+    //==============================================================================================
+    1.展示Dialog
+    final String str[] = {"测试数据1", "测试数据2"};
+
+    BottomDialogs.getInstance(GuideActivity.this)
+                 .setTitle("标题")
+                 .setData(str)
+                 .setOnClickListener(new BottomDialogs.OnClickListener() {
+                  @Override
+                  public void click(int position) {
+
+                  showToast(str[position]);
+
+                  }
+
+                  }).show();

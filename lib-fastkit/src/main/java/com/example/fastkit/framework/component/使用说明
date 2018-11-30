@@ -1,0 +1,31 @@
+    //==============================================================================================
+    //================================================================================组件化开发====
+    //==============================================================================================
+
+     1.参考
+     https://github.com/alibaba/ARouter
+
+     https://blog.csdn.net/huangxiaoguo1/article/details/78753555
+
+
+     2.页面跳转
+     ARouter.getInstance().build(RouteUtils.Me_Login).navigation();
+
+     3.跳转分组页面
+
+          ARouter.getInstance().build(RouteUtils.Me_Login,"GoupName").navigation();
+
+
+     4.页面传值
+
+               ARouter.getInstance()
+                             .build(RouteUtils.Life_TeamPerformanceActivity)
+                             .withString("personnelId", value.subordinate.getId() + "")
+                             .navigation();
+
+     5.接收页面传值
+         @Autowired
+         int height = 175;
+
+         @Autowired(name = "boy")
+         boolean girl;

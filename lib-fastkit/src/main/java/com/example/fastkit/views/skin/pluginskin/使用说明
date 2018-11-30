@@ -1,0 +1,24 @@
+    //==============================================================================================
+    //==========================================================================ZenHui插件式换肤====
+    //==============================================================================================
+
+    1.在Application中注册不加这句会奔溃
+    SkinManager.getInstance().init(this);
+
+    2.在需要换肤的Activity中继承BaseSkinActivity
+
+
+    3.在需要换肤的Activity中如果有第三方的View实现此方法
+    public void changeSkin(SkinResource skinResource) {
+      //做一些第三方的改变
+      Toast.makeText(this,"换肤了",Toast.LENGTH_SHORT).show();
+    }
+
+    4.在需要的位置调用换肤框架
+    String SkinPath = Environment.getExternalStorageDirectory().getAbsolutePath()
+                    +File.separator +"red.skin";
+    int result = SkinManager.getInstance().loadSkin(SkinPath);
+
+    5.需要在.skin文件中的资源名称和应用的资源名称相同
+
+

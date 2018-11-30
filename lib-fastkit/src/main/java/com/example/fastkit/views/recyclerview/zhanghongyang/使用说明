@@ -1,0 +1,78 @@
+    //==============================================================================================
+    //==========================================================================RecyclerView使用====
+    //==============================================================================================
+
+    0.参考链接
+    https://github.com/hongyangAndroid/baseAdapter
+    https://blog.csdn.net/lmj623565791/article/details/51854533
+    https://blog.csdn.net/lmj623565791/article/details/51118836
+
+
+
+    1.初始化相关步奏
+    RecyclerView recyclerView;
+    LinearLayoutManager  mLayoutManager = new LinearLayoutManager(CarModelManageActivity.this);
+    recyclerView.setLayoutManager(mLayoutManager);
+    HomeAdapter homeAdapter = new HomeAdapter();
+    recyclerView.setAdapter(homeAdapter);
+
+
+
+    2.配置Adapter相关
+    private static final int VIEW_TYPE = -1;
+
+    class HomeAdapter extends RecyclerView.Adapter<ViewHolder> {
+
+
+        public HomeAdapter() {
+
+        }
+
+        @Override
+        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            ViewHolder holder;
+            if (viewType == VIEW_TYPE) {
+                holder = ViewHolder.createViewHolder(CarModelManageActivity.this, parent, R.layout.no_data_item);
+            } else {
+                holder = ViewHolder.createViewHolder(CarModelManageActivity.this, parent, R.layout.list_car_model_item);
+            }
+
+            return holder;
+        }
+
+        @Override
+        public void onBindViewHolder(ViewHolder holder, final int position) {
+
+            if (getItemViewType(position) == VIEW_TYPE) {
+                return;
+            } else {
+
+                holder.setText(R.id.tv_owner_name, carList.get(position).getOwnerName());
+
+            }
+        }
+
+
+        @Override
+        public int getItemCount() {
+            //返回集合的长度
+            return carList.size() > 0 ? carList.size() : 1;
+        }
+
+
+        /**
+         * 获取条目 View填充的类型
+         * 默认返回0
+         * 将lists为空返回-1
+         *
+         * @param position
+         * @return
+         */
+        public int getItemViewType(int position) {
+            if (carList.size() <= 0) {
+                return VIEW_TYPE;
+            }
+            return super.getItemViewType(position);
+        }
+
+    }

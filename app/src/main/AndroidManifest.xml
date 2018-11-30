@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sibao"
+    android:versionCode="20"
+    android:versionName="1.8.0">
+
+    <application
+        android:name="com.example.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_new_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_new_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!--阿里热修复-->
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="24925235-1" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="9ab5987b398867ba932799f308dfa52f" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCyPMl/Ep9NLdtUOiOftWa0/1NUoB8X/4vAJF8WCvXSHH4yUNMkYrzpA2dDPVWbJ0e41rYkF2/KEM6Ok3LxIFmcPnVzXvWwp15sFxC4IlSLSHessIst3h19fs9XputXXw6qlppLRqYgvHWdYCVXasyWlkROaJgUy6xoc8ZWjEs3LSatmBYWPMzvwjiaLt02+MsjW5DRN4xJ9/lYv/xM5828opH2++AECh2UYdrubXioRoUR4LoOtAmMrr835fYc1jhdjp5lKogCcfTqneFJBhojOGD43Gk6I2weULKSgI+Gb83iCTq4tacLIZuWu+ehsmLdCMDd7pMT3ayg/FAAvfQZAgMBAAECggEBAIQOz8gr1wXK/R9puC1DrSZbqrUfsgoI19Vz3VOqqTmUzNeg1N+3nHoUgHTsQ7oiH1zPEMKq7rPLQg+XJemL63j9Oe5SJD1PtIDnkgarwPI1rh2v7F7+m+D4jM1HqkTg9C/mR8mQPdQxbf89Vk1vnsfP7CogCtYVldcKOKC1b6EfvLnivKb2PFZj5hNS4Nn7htaQJRPIocMedzGlyyDeL6SRzzv8T6q4rkZhJHmEaqn3OrNvImTFXJgljxAFfZnRfpFxHON4tbdBeytlpOJ3JgiIsedPK11UmANhulVGzm2dpy+KhmVna/yiWHXtarx4IGr62CJjreChdzruc5AA+KUCgYEA/aXNEbo9MpCspUUAjVmmVxFcXlmwNQQSySDatRI1ls3S7lm74QfyLGurECtWeqGuAEVzlX1wLAReFyzcy7EujVy954zt0AGwaZK5UV+d6qt7Qr0PVsorn5pkirq81+OtZMlV/50lWaLbbTCt79RljvjwYM/XRamgzQtRLT+l83cCgYEAs+PzUzjKpd3fgdKfG9mmklJKdtzp6rG/HHffjyNSsj6bqB4lYPZYVLPH3TIALcCn66OSwrTKSEO6kqlVp/b3Qnj2zyAJFmq4U4siRW/Mngl6dGV6IH7eBttrp1WD5OkrKfzetJVw55X+FYM8kKchZBmEPi4i24jqJhOXHrwHmO8CgYEAi5YM7q6RMxyPBjyc+yzU76FsNbgh0ms1c14TPgaRWzZV2DmlvUdELNHrx/AxnTcQrLGL1D691lto9FQKBkaxmbXqBF14GjpzvQWz2mZGX3iTUrz8jgSgUSsEHZx6hEyVhZuPKiZvAY8wNjzN2+gFI9M3Ze+7Rmj9RxntSHt4di0CgYATPoiSV5n+Qo0dk02oKhGSx7DlpF512AwM3JoS8wFuxhna01bGV7Q9Y3o3JJk2S8zq/XW+1J5rOquj8u+R526uMsicgd3XAxWzAkhpSzuFkJgECbMV9NyFuUV8Aj745yTR+hZNFUudysMCxCZfhzGgRsaJ7F+YQr5h0mixRgY+CwKBgQD568GHibYBP5E47JvJd4iTgStGugGwkQzu+3pFavoPCg8AbF8jVn4KR0eu/8lt0NM8EP8O3tgm0eEeDWBUVmOXSrGvkWw4yVeDTxU2Eq2u75wLNRSSr4rnMCKWl4o5M84KWA3h3dK6XGzbTgFuFWYhqsGFhekK2JhB0RCweqxYRA==" />
+
+        <!-- 蒲公英更新-->
+        <meta-data
+            android:name="PGYER_APPID"
+            android:value="c227521d22f5b5d13b42120b81b70973"></meta-data>
+
+
+        <!--启动页面-->
+        <activity android:name=".Html5VideoAutoPlay"
+            android:hardwareAccelerated="true"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme" />
+
+
+        <activity android:name=".TestActivity" />
+
+
+    </application>
+
+</manifest>

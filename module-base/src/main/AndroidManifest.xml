@@ -1,0 +1,72 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.base">
+    <!--网络权限-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--相机权限-->
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+    <!-- WIFI网络状态信息权限-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <!-- 电池状态权限 -->
+    <uses-permission android:name="android.permission.BATTERY_STATE"></uses-permission>
+    <!-- 连接匹配的蓝牙设备权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH"></uses-permission>
+    <!-- 发现匹配的蓝牙设备权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"></uses-permission>
+    <!--拨打电话的权限-->
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <!--改变网络状态权限-->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"></uses-permission>
+    <!--改变wifi网络状态权限-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <!--访问闪光灯的权限-->
+    <uses-permission android:name="android.permission.FLASHLIGHT"></uses-permission>
+    <!--允许修改全局声音的权限-->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"></uses-permission>
+    <!--允许监听、控制、取消呼出电话的权限-->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"></uses-permission>
+    <!--允许读取电话薄的权限-->
+    <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+    <!--读取浏览器收藏夹和历史记录的权限-->
+    <uses-permission android:name="android.permission.READ_HISTORY_BOOKMARKS"></uses-permission>
+    <!--允许读取用户数据的权限-->
+    <uses-permission android:name="android.permission.READ_OWNER_DATA"></uses-permission>
+    <!--允许读取手机状态的权限-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <!--允许读取短信息的权限-->
+    <uses-permission android:name="android.permission.READ_PHONE_SMS"></uses-permission>
+    <!--允许处理、监控、接受彩信的权限-->
+    <uses-permission android:name="android.permission.RECEIVE_MMS"></uses-permission>
+    <!--允许处理、监控、接受短信的权限-->
+    <uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
+    <!--允许录音的权限-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
+    <!--允许发送短信的权限-->
+    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
+    <!--设置桌面壁纸权限-->
+    <uses-permission android:name="android.permission.SET_WALLPAPER"></uses-permission>
+    <!--允许控制振动器的权限-->
+    <uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+    <!--允许写用户联系人的权限-->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"></uses-permission>
+    <!--允许应用程序写历史记录和书签的全新-->
+    <uses-permission android:name="android.permission.WRITE_HISTORY_BOOKMARKS"></uses-permission>
+    <!--允许应用程序写用户数据的权限-->
+    <uses-permission android:name="android.permission.WRITE_OWNER_DATA"></uses-permission>
+    <!--允许写短信的权限-->
+    <uses-permission android:name="android.permission.WRITE_SMS"></uses-permission>
+    <!-- 读写sdcard，storage等等 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 外部存储读权限，调试工具加载本地补丁需要 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 全局弹出对话框 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!--腾讯X5内核 -->
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <!-- 硬件加速对X5视频播放非常重要，建议开启 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+</manifest>

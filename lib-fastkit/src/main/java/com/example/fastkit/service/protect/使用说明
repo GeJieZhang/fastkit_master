@@ -1,0 +1,23 @@
+    //==============================================================================================
+    //================================================================================双进程守护====
+    //==============================================================================================
+
+    1.在Application中进行注册
+
+
+    startService(new Intent(this, MessageService.class));
+    startService(new Intent(this, GuardService.class));
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      //必须大于5.0
+      startService(new Intent(this, JobWakeUpService.class));
+    }
+
+    2.在Manifest.xml中注册service
+
+
+    <service android:name=".service.protect.MessageService" />
+
+    <service
+    android:name=".service.protect.GuardService"
+    android:process=":guardService" />

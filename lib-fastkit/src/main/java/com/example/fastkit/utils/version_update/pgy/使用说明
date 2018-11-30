@@ -1,0 +1,48 @@
+    //==============================================================================================
+    //============================================================================蒲公英版本更新====
+    //==============================================================================================
+
+    1.添加依赖
+     compile 'com.pgyersdk:sdk:2.8.1'
+
+
+
+
+    2.使用功能
+     PgyUpdateManager.register(MainActivity.this,
+                    new UpdateManagerListener() {
+
+                        @Override
+                        public void onUpdateAvailable(final String result) {
+
+                            // 将新版本信息封装到AppBean中
+                            final AppBean appBean = getAppBeanFromString(result);
+
+
+                            new AlertDialog.Builder(MainActivity.this)
+                                    .setTitle("更新")
+                                    .setMessage("检测到新版本" + appBean.getVersionName())
+                                    .setNegativeButton(
+                                            "确定",
+                                            new DialogInterface.OnClickListener() {
+
+                                                @Override
+                                                public void onClick(
+                                                        DialogInterface dialog,
+                                                        int which) {
+                                                    startDownloadTask(
+                                                            MainActivity.this,
+                                                            appBean.getDownloadURL());
+                                                }
+                                            }).show();
+                        }
+
+                        @Override
+                        public void onNoUpdateAvailable() {
+
+                        }
+                    });
+
+     3.需要注意的的是蒲公英是通过versionCode来判断的
+
+

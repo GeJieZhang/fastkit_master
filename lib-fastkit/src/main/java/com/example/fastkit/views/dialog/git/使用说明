@@ -1,0 +1,37 @@
+    //==============================================================================================
+    //==============================================================================Dialog的使用====
+    //==============================================================================================
+
+    1.本Dialog来自GitHub
+    https://github.com/afollestad/material-dialogs
+
+    2.引用方式
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+
+
+     dialogTimeSearch = new MaterialDialog.Builder(this)
+                    .customView(R.layout.activity_life_order_search_time, true)
+                    .title("日期查询")
+                    .positiveText("确定")
+                    .negativeText("取消")
+                    .onPositive(new MaterialDialog.SingleButtonCallback() {
+                        @Override
+                        public void onClick(MaterialDialog dialog, DialogAction which) {
+                            // TODO
+
+                            showToast("onPositive");
+                        }
+                    })
+
+                    .onNegative(new MaterialDialog.SingleButtonCallback() {
+                        @Override
+                        public void onClick(MaterialDialog dialog, DialogAction which) {
+                            // TODO
+                            showToast("onNegative");
+                        }
+                    })
+                    .build();
+
+
+
+

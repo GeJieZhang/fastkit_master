@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion var.compileSdkVersion
+    defaultConfig {
+        applicationId "com.sibao"
+        minSdkVersion var.minSdkVersion
+        targetSdkVersion var.targetSdkVersion
+        versionCode var.versionCode
+        versionName var.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        //https://www.cnblogs.com/Android-FJH/p/5973547.html
+        multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: "app"]
+            }
+        }
+
+        resConfigs "zh","en"
+
+    }
+    //https://blog.csdn.net/willba/article/details/70876889
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    buildTypes {
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            versionNameSuffix "-debug"
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        // 输出apk名称为com_biniusports_app_bnsports_v1.0.0_20171205_baidu.apk
+
+                        def fileName = "${variant.name}${defaultConfig.versionName}.apk"
+                        outputFileName = fileName
+                    }
+                }
+            }
+        }
+
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //混淆
+            minifyEnabled false
+            //Zipalign优化,优化代码性能
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources false
+            //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明，后一个文件是自己的定义混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+
+
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        // 输出apk名称为com_biniusports_app_bnsports_v1.0.0_20171205_baidu.apk
+                        def fileName = "${variant.buildType.name}${defaultConfig.versionName}.apk"
+                        outputFileName = fileName
+                    }
+                }
+            }
+
+
+        }
+
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation "junit:junit:$var.junit"
+    androidTestImplementation "com.android.support.test:runner:$var.runner"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$var.espresso_core"
+
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+
+
+    testImplementation 'junit:junit:4.12'
+
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    api 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    annotationProcessor "com.alibaba:arouter-compiler:$var.arouter_compiler"
+
+    if (isBuildModule.toBoolean()) {
+        api project(':module-base')
+    } else {
+        api project(':module-user')
+    }
+
+
+}

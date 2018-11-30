@@ -1,0 +1,38 @@
+    //==============================================================================================
+    //=========================================================================网络监测=============
+    //==============================================================================================
+    0.参考链接
+    https://blog.csdn.net/carson_ho/article/details/53012604
+
+    1.动态注册网络监测广播
+       NetWorkStateReceiver netWorkStateReceiver;
+
+        //在onResume()方法注册
+        @Override
+        protected void onResume() {
+            if (netWorkStateReceiver == null) {
+                netWorkStateReceiver = new NetWorkStateReceiver();
+            }
+            IntentFilter filter = new IntentFilter();
+            filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+            registerReceiver(netWorkStateReceiver, filter);
+            System.out.println("注册");
+            super.onResume();
+        }
+
+        //onPause()方法注销
+        @Override
+        protected void onPause() {
+            unregisterReceiver(netWorkStateReceiver);
+            System.out.println("注销");
+            super.onPause();
+        }
+
+
+
+
+
+
+
+
+
